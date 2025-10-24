@@ -1,3 +1,0 @@
-Fixed The message being Duplicate
-Added extra Functions
-Checking if the App Updater works or Not
