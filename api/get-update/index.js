@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'current_version required' });
   }
 
-  const owner = process.env.GITHUB_OWNER || 'your-github-username';
+  const owner = process.env.GITHUB_OWNER || 'uzairdevelper223';
   const repo = process.env.GITHUB_REPO || 'chat-out-update';
 
   try {
@@ -20,14 +20,14 @@ export default async function handler(req, res) {
       return res.status(200).send('63887');
     }
 
-    // Fetch changelog
+    // Fetch changelog for the latest version
     const changelogRes = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/main/changelog_${latestVersion}.txt`);
     let changelog = 'No changelog available';
     if (changelogRes.ok) {
       changelog = await changelogRes.text();
     }
 
-    // APK download URL
+    // Download URL for the APK
     const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/chatout_${latestVersion}.apk`;
 
     res.status(200).json({
