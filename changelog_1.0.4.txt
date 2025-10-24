@@ -1,0 +1,4 @@
+Fixed Audio Recodring
+Better UI For message sending
+Fixed Crash when opening empty private chat
+Fixed Messages Not being properly loaded
