@@ -1,0 +1,2 @@
+Fixed messages more then 25 not being showen
+Added Auto Scroll for new messages
