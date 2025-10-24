@@ -5,12 +5,9 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'current_version required' });
   }
 
-  const owner = process.env.GITHUB_OWNER || 'uzairdevelper223';
-  const repo = process.env.GITHUB_REPO || 'chat-out-update';
-
   try {
     // Fetch latest version from repo
-    const latestVersionRes = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/main/latest_version.txt`);
+    const latestVersionRes = await fetch(`https://raw.githubusercontent.com/uzairdeveloper223/chat-out-update/refs/heads/main/latest_version.txt`);
     if (!latestVersionRes.ok) {
       throw new Error('Failed to fetch latest version');
     }
@@ -21,14 +18,14 @@ export default async function handler(req, res) {
     }
 
     // Fetch changelog for the latest version
-    const changelogRes = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/main/changelog_${latestVersion}.txt`);
+    const changelogRes = await fetch(`https://raw.githubusercontent.com/uzairdeveloper223/chat-out-update/refs/heads/main/changelog_${latestVersion}.txt`);
     let changelog = 'No changelog available';
     if (changelogRes.ok) {
       changelog = await changelogRes.text();
     }
 
     // Download URL for the APK
-    const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/chatout_${latestVersion}.apk`;
+    const downloadUrl = `https://raw.githubusercontent.com/uzairdeveloper223/chat-out-update/refs/heads/main/chatout_${latestVersion}.apk`;
 
     res.status(200).json({
       status: 'update_available',
