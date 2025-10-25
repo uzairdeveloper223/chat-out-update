@@ -1,4 +1,5 @@
-Fixed Audio Recodring
-Better UI For media sending
-Fixed Crash when opening empty private chat
-Fixed Messages Not being properly loaded
+Added Notification Feature
+In App Notification and System Notification
+Added Reply to Messages Feature
+Fixed Audio Recording(fully working)
+Added A new Message Encryption
